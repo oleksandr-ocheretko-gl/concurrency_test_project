@@ -1,0 +1,28 @@
+[project]
+name = "aqa-concurrency-tests"
+version = "0.1.0"
+description = "AQA senior assessment project with concurrency and SQLAlchemy tests"
+requires-python = ">=3.13"
+
+dependencies = [
+    "sqlalchemy",
+    "faker",
+    "pytest",
+    "allure-pytest",
+]
+
+[dependency-groups]
+dev = ["ruff"]
+
+[tool.pytest.ini_options]
+addopts = "--alluredir=allure_reports"
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+select = ["ALL"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
