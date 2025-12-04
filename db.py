@@ -9,7 +9,6 @@ class User(Base):
     name = Column(String(50))
     email = Column(String(50))
 
-# SQLite in-memory для тестів
 engine = create_engine("sqlite:///test.db", echo=False, future=True)
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 
