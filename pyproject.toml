@@ -20,9 +20,27 @@ addopts = "--alluredir=allure_reports"
 [tool.ruff]
 line-length = 120
 target-version = "py313"
-select = ["ALL"]
-ignore = []
-
+select = [
+    "E", "F", "W",      # flake8
+    "B",                # bugbear
+    "A",                # builtins
+    "PIE",              # cleaner/safer python
+    "C4",               # comprehensions
+    "SIM",              # simplify
+    "RUF",              # ruff-specific
+    "PT",               # pytest-style
+    "I",                # import sorting
+    "S",                # security/bandit
+    "RSE",              # regex/escape errors
+    "FLY",              # f-strings
+]
+ignore = [
+    "B905",   # duplicate check for indexing on sl
+    "SIM117", # sometimes 'with' is clearer than auto-simplify
+    "PT011",  # parametrize names rule (спірний)
+    "PT012",  # Too specific; часто помилкові
+    "D",      # ignore docstring (якщо не хочете enforce)
+    "S101"    # allow asserts in tests
+]
 [tool.ruff.format]
 quote-style = "double"
-indent-style = "tab"
